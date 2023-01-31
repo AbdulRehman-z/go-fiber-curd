@@ -6,15 +6,18 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-// routes handlers
 
+// route handlers
 func initialController(c *fiber.Ctx) error {
 	return c.SendString("Hello, World 👋!")
 }
 
 func main() {
+	// Create new Fiber instance
 	app := fiber.New()
 
+
+	// Routes
 	app.Get("/", initialController)
 
 	// Start server
