@@ -84,15 +84,8 @@ func main() {
 		router.Get("/", getBooksController)
 		router.Get("/:id<min(0)>", getBookController)
 		router.Post("/addBook", addBookController)
-		// router.put("/books/:id",updateBookController)
 		router.Delete("/:id", deleteBookController)
 	})
-
-	// app.Get("/books",getBooksController)
-	// app.Get("/books/:id<min(0)>",getBookController)
-	// app.Post("/books",addBookController)
-	// // app.put("/books/:id",updateBookController)
-	// // app.delete("/books/:id",deleteBookController)
 
 	// Start server
 	log.Fatal(app.Listen(":8000"))
