@@ -82,7 +82,7 @@ func main() {
 	// Routes
 	v1 := app.Group("/api/v1/books")
 	v1.Get("/", getBooksController)
-	v1.Get("/book", getBookController)
+	v1.Get("/:id<min(0)>", getBookController)
 	v1.Post("/", addBookController)
 	v1.Delete("/book", deleteBookController)
 	// Start server
