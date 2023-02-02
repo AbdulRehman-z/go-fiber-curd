@@ -80,13 +80,11 @@ func main() {
 		Author: &Author{ID: "2", Name: "Robin Sharma", Age: 40}})
 
 	// Routes
-	app.Route("/api/v1/books", func(router fiber.Router) {
-		router.Get("/", getBooksController)
-		router.Get("/:id<min(0)>", getBookController)
-		router.Post("/addBook", addBookController)
-		router.Delete("/:id", deleteBookController)
-	})
-
+	v1 := app.Group("/api/v1/books")
+	v1.Get("/", getBooksController)
+	v1.Get("/book", getBookController)
+	v1.Post("/", addBookController)
+	v1.Delete("/book", deleteBookController)
 	// Start server
 	log.Fatal(app.Listen(":8000"))
 }
